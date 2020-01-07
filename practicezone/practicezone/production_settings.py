@@ -25,7 +25,7 @@ SECRET_KEY = 'u%^-&#djze$a7)ykn!=ub*7n)!#sfu!oifq#nzgir&)nj-2qu='
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["afternoon-beach-38581.herokuapp.com"]
 
 
 # Application definition
@@ -85,6 +85,8 @@ DATABASES = {
     }
 }
 
+
+
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
 
@@ -122,3 +124,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
