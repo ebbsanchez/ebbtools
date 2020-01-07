@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Ttimestream</title>
+  {% load static %}
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+	<h1> Hello this is TimeStream.</h1>
+	<div id="msgboard">
+		<span>Message one.</span>
+	</div>
+	textbox: <input type="text" name="message" id="msgInput" value="Ophelia.">
+	<button onclick="myFunction()" id="submit">enter</button>
+
+	<script type="text/javascript">
+		function myFunction() {
+			var msgboard = document.getElementById("msgboard");
+			var span = document.createElement("span");
+			var msg = document.getElementById("msgInput");
+			msg.value += " "
+			span.innerHTML = msg.value;
+			msgboard.appendChild(span);
+			msg.value = ""
+		}
+		
+	document.addEventListener('keydown', logKey);
+	function logKey(e) {
+	  if (e.keyCode === 13){
+	  	myFunction();
+	  }
+	  console.log(e)
+	}
+	</script>
+</body>
