@@ -24,5 +24,5 @@ def index(request):
             for todo_id in checkedlist:
                 todo = TodoList.objects.get(id=int(todo_id))
                 todo.delete()
-    return render(request, "index.html", {"todos": todos, "categories": categories})
+    return render(request, "todolist/index.html", {"todos": todos, "categories": categories})
             
