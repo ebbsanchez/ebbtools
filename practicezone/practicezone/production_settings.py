@@ -1,3 +1,4 @@
+import dj_database_url
 """
 Django settings for practicezone project.
 
@@ -56,7 +57,7 @@ PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(PROJECT_ROOT, 'templates').replace('\\', '/'),],
+        'DIRS': [os.path.join(PROJECT_ROOT, 'templates').replace('\\', '/'), ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -74,8 +75,7 @@ WSGI_APPLICATION = 'practicezone.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
-import dj_database_url
-DATABASES = { 'default': dj_database_url.config() }
+DATABASES = {'default': dj_database_url.config()}
 
 
 # Password validation

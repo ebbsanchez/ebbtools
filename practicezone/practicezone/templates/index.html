@@ -1,8 +1,32 @@
 {% extends "base.html" %}
+
+{% block style %}
+	{{ block.super }}
+	<style type="text/css">
+	#notice-red {
+		background-color: #ffb6b9;
+		padding: 0.5em;
+		border-radius: .5em;
+		margin-bottom: 1em;
+	}
+	.align-right{
+		text-align: right;
+	}
+	.no-margin{
+		margin:0;
+	}
+	</style>
+{% endblock style %}
+
 {% block content %}
 	<div class="page-header">
         <h1><a href="/">Jack's Practice Zone</a></h1>
     </div>
+    <div id="notice-red">
+    	This website is under development, so the debug mode will be open and things make look rough. You can come back later or just look around.
+		<br>
+		<p class="align-right no-margin">-Jack Sanchez 2020/01/08</p>
+	</div>
 	<h3>App that practicing on this site will be listed down there<h3/>
 	<ul>
 		<li><a href="/todoapp">Todo app</a></li>
