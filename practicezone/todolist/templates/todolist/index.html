@@ -17,22 +17,13 @@
             <form action="" method="post" id="theform">
             {% csrf_token %} <!-- csrf token for basic security -->
                 <div class="inputContainer">
-                    <input type="text" id="description" class="taskName" placeholder="What do you need to do?" name="description" required>
-                    <label for="description">Description</label>
+                    {{ form.description }}
                 </div>
                 <div class="inputContainer half last">
-                    <i class="fa fa-caret-down selectArrow"></i>
-                    <select id="category" class="taskCategory" name="category_select">
-                    <option class="disabled" value="">Choose a category</option>
-                    {% for category in categories %}
-                        <option class="" value="{{ category.name }}" name="{{ category.name }}">{{ category.name }}</option>
-                    {% endfor %}
-                    </select>
-                    <label for="category">Category</label>
+                    {{ form.category }}
                 </div>
                 <div class="inputContainer half last right">
-                    <input type="date" id="dueDate" class="taskDate" name="date">
-                    <label for="dueDate">Due Date</label>
+                    {{ form.date }}
                 </div>
                 <div class="row">
                     <button class="taskAdd" name="taskAdd" type="submit"><i class="fa fa-plus icon"></i>Add task</button>
@@ -57,7 +48,6 @@
 <script>
     function MakeCheckList(){
         checkedList = $('input:checkbox:checked[name="checkedbox"]').map(function() { return $(this).val(); }).get();
-        alert(checkedList);
         $('input#checkedlist').val(checkedList);
     }
     
