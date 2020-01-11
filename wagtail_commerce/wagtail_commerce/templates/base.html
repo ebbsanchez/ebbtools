@@ -19,7 +19,26 @@
 
         {# Global stylesheets #}
         <link rel="stylesheet" type="text/css" href="{% static 'css/wagtail_commerce.css' %}">
+        
+        {# Snipcart CSS #}
+        {% load  static  wagtailsettings_tags %}
+        {% get_settings %}
 
+        {# Global stylesheets #}
+
+        <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
+        <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css">
+        <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
+
+        {# Snipcart #}
+
+        {% if settings.home.SnipcartSettings.api_key %}
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+            <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.0.5/default/snipcart.css" />
+        {% endif %}
+
+        
+        
         {% block extra_css %}
             {# Override this in templates to add extra stylesheets #}
         {% endblock %}
@@ -28,11 +47,45 @@
     <body class="{% block body_class %}{% endblock %}">
         {% wagtailuserbar %}
 
-        {% block content %}{% endblock %}
+        <div class="container grid-lg">
+            <header class="navbar">
+
+                <section class="navbar-section">
+                    <a href="/" class="navbar-brand mr-2">
+                        Products
+                    </a>
+                </section>
+
+                <!-- Snipcart summary and View cart button -->
+                <section class="navbar-section snipcart-summary">
+                    <div class="input-group input-line">
+                        <a href="" class="btn btn-primary snipcart-checkout">
+                            <i class="icon icon-apps"></i>
+                            View cart (<span class="snipcart-total-items">0</span>)
+                        </a>
+                    </div>
+                </section>
+
+            </header>
+        </div>
+
+
+
+       
+
+        
+        <div class="container grid-lg">
+            {% block content %}{% endblock %}
+        </div>
 
         {# Global javascript #}
         <script type="text/javascript" src="{% static 'js/wagtail_commerce.js' %}"></script>
-
+        {# <script type="text/javascript" src="{% static 'js/snipcartwagtaildemo.js' %}"></script> #}
+                
+        {# Snipcart javascript #}
+        <div  id="snipcart" data-api-key="<your_public_api_key>"></div>
+        <script src="https://cdn.snipcart.com/themes/v3.0.5/default/snipcart.js"></script>
+        
         {% block extra_js %}
             {# Override this in templates to add extra javascript #}
         {% endblock %}
