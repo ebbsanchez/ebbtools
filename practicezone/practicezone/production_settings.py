@@ -39,6 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'todolist.apps.TodolistConfig',
+    'accounts',
+    'products',
+    'shopping_cart',
 ]
 
 MIDDLEWARE = [
