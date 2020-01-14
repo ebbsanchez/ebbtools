@@ -14,13 +14,18 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 import todolist.views
 from . import views
 
+# from .views import testing_page
 
 urlpatterns = [
     path('', views.index),
     path('todoapp/', todolist.views.index, name="todolist"),
     path('admin/', admin.site.urls),
+    path('products/', include('products.urls', namespace='products')),
+    path('shopping_cart/', include('shopping_cart.urls', namespace='shopping_cart')),
+
+
 ]

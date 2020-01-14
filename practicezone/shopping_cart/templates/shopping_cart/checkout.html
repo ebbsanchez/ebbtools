@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+	
+	<a href="{% url 'shopping_cart:process_payment' order.id %}">Click me to Suceed Checkout</a>
+	<br>
+	
+
+{% endblock content %}
