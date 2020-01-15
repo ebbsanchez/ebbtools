@@ -70,7 +70,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'practicezone',
-        'USER': 'jacklin',
+        'USER': 'postgres',
         'PASSWORD': 'ssss',
         'HOST': 'localhost',
         'PORT': '',

@@ -1,9 +1,22 @@
 {% extends "base.html" %}
-
 {% block content %}
-	
-	<a href="{% url 'shopping_cart:process_payment' order.id %}">Click me to Suceed Checkout</a>
 	<br>
-	
-
+	<div class="container">
+		<header>
+			<h2>Checkout Page</h2>
+		</header>
+		<div class="row">
+			<div class="col s12">
+				<p>You have to give me your credit card number...However, someone just want to pay for you!
+				</p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col s12 center-align">
+				<a href="{% url 'shopping_cart:process_payment' order.id %}" class="btn waves-effect waves-light">
+					be Payed
+				</a>
+			</div>
+		</div>
+	</div>
 {% endblock content %}

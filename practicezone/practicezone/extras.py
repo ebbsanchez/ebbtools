@@ -2,7 +2,8 @@ from django.contrib.auth.models import User, Group
 
 import random
 
-#### It is broken ### 
+#### It is broken ####
+
 
 def init_guest_instance():
     # G1 = User(username='Guest1')

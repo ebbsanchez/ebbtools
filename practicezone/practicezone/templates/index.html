@@ -1,13 +1,13 @@
 {% extends "base.html" %}
-
-{% block style %}
+{% block head %}
 	{{ block.super }}
 	<style type="text/css">
+	* {
+		font-family: 'Gelasio', serif;
+	}
 	#notice-red {
 		background-color: #ffb6b9;
-		padding: 0.5em;
-		border-radius: .5em;
-		margin-bottom: 1em;
+		padding: 1em 3em;
 	}
 	.align-right{
 		text-align: right;
@@ -16,20 +16,56 @@
 		margin:0;
 	}
 	</style>
-{% endblock style %}
-
+{% endblock head %}
+{% block bodyclass %}
+	"lime lighten-5"
+{% endblock bodyclass %}
 {% block content %}
-	<div class="page-header">
-        <h1><a href="/">Jack's Practice Zone</a></h1>
-    </div>
-    <div id="notice-red">
-    	This website is under development, so the debug mode will be open and things make look rough. You can come back later or just look around.
-		<br>
-		<p class="align-right no-margin">-Jack Sanchez 2020/01/08</p>
+	<div class="">
+		<div id="notice-red">
+			This website is under development, so the debug mode will be open and things make look rough. You can come back later or just look around.
+			<br>
+			<p class="align-right no-margin">-Jack Sanchez 2020/01/08</p>
+		</div>
 	</div>
-	<h3>App that practicing on this site will be listed down there<h3/>
-	<ul>
-		<li><a href="/todoapp">Todo app</a></li>
-	</ul>
-
+	<div class="row">
+		<div class="page-header col s12">
+			<h1 class='center-align col s12'><a href="/">Jack's Practice Zone</a></h1>
+			<div class='col s9 offset-s2'>
+				This is a Place where I put my practice app as a show case.<br>
+				Its	meant to be proof of skills and may become my portfolio someday.<br>
+				hope you enjoy your journey here.
+			</div>
+		</div>
+	</div>
+	<div class="divider"></div>
+	<div class="container">
+		<h3>Practice Projects</h3>
+		
+		<div class="row">
+			<div class="col s12 m6 l4">
+				<div class="card teal darken-4">
+					<div class="card-content white-text">
+						<span class="card-title">Day1: Todo App</span>
+						<p>Simple app to practice basic MTC in Django!</p>
+					</div>
+					<div class="card-action">
+						<a href="/todoapp">Pay a visit!</a>
+					</div>
+				</div>
+			</div>
+			<div class="col s12 m6 l4">
+				<div class="card teal darken-4">
+					<div class="card-content white-text">
+						<span class="card-title">Day2: Shopping Cart</span>
+						<p>E-commerce seem to be a high demanding market. So practice shopping cart functoin here :)</p>
+					</div>
+					<div class="card-action">
+						<a href="/products">Pay a visit!</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
 {% endblock content %}
