@@ -9,6 +9,9 @@ from practicezone.extras import get_random_guest_user
 
 
 def product_list(request):
+    # guest_group = Group(name='Guests')
+    # guest_group.save()
+
     guest_group = Group.objects.get(name="Guests")
     user_groups = request.user.groups.all()
 
