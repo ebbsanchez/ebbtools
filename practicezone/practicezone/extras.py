@@ -24,11 +24,11 @@ def init_guest_instance():
 
 
 def get_random_guest_user():
-    # try:
-    #     guest_group = Group.objects.get(name='Guests')
-    #     guest = guest_group.user_set.all()[random.randint(0, 3)]
-    # except IndexError:
-    #     init_guest_instance()
-    #     guest_group = Group.objects.get(name='Guests')
-    #     guest = guest_group.user_set.all()[random.randint(0, 3)]
+    try:
+        guest_group = Group.objects.get(name='Guests')
+        guest = guest_group.user_set.all()[random.randint(0, 3)]
+    except IndexError:
+        init_guest_instance()
+        guest_group = Group.objects.get(name='Guests')
+        guest = guest_group.user_set.all()[random.randint(0, 3)]
     return guest

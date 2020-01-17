@@ -114,7 +114,3 @@ def update_transaction_records(request, order_id):
     messages.info(request, "Thank you! Your purchase was successful!")
     return redirect(reverse('products:product-list'))
 
-
-def success(request, **kwargs):
-    # a view signifying the transcation was successful
-    return render(request, 'shopping_cart/purchase_success.html', {})

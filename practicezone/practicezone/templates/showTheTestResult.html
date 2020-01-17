@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block head %}
+	<style type="text/css">
+		span.badge.new.is302{
+			background-color: #00bfa5;
+		}
+		span.badge.new.is404{
+			background-color: #ff1744;	
+		}
+
+	</style>
+{% endblock head %}
+{% block bodyclass %}
+	"lime lighten-5"
+{% endblock bodyclass %}
+{% block content %}
+	<div class="container">
+		<h1>This is the result of TestCase</h1>
+		<ul class="collection with-header">
+			<li class="collection-header">
+				<h4>Is Link Alive?</h4>
+			</li>
+			{% for result in result_list %}
+				<li class='collection-item'>
+					{{ result.0 }} 
+					<span class="badge new is{{ result.1 }} " data-badge-caption="" >{{ result.1 }}</span>
+				</li>
+			{% endfor %}
+			<li class="collection-item">
+				This/Is/how/404/will/look/like/
+				<span class="badge new is404" data-badge-caption="">404</span>
+			</li>
+		</ul>
+	</div>
+	<br>
+{% endblock content %}

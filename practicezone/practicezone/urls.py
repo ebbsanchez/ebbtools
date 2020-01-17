@@ -22,10 +22,10 @@ from . import views
 
 urlpatterns = [
     path('', views.index),
+    path('test', views.showTheTestResult),
     path('todoapp/', todolist.views.index, name="todolist"),
     path('admin/', admin.site.urls),
     path('products/', include('products.urls', namespace='products')),
     path('shopping_cart/', include('shopping_cart.urls', namespace='shopping_cart')),
-
 
 ]

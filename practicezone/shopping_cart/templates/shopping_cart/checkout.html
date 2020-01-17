@@ -13,9 +13,13 @@
 		</div>
 		<div class="row">
 			<div class="col s12 center-align">
-				<a href="{% url 'shopping_cart:process_payment' order.id %}" class="btn waves-effect waves-light">
-					be Payed
-				</a>
+				{% if order == 0 %}
+					Oops! But You havn't got anything to be payed.
+				{% else %}	
+					<a href="{% url 'shopping_cart:process_payment' order.id %}" class="btn waves-effect waves-light">
+						be Payed
+					</a>
+				{% endif%}
 			</div>
 		</div>
 	</div>
