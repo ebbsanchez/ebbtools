@@ -16,7 +16,18 @@
 		margin:0;
 	}
 	.simple-link{
-		color:black;
+		color: black;
+	}
+	#profile{
+		position: relative;
+		width:20em;
+		margin-left:-10em;
+		margin-bottom: -4em;
+		margin-top: 1em;
+		left: 50%;
+	}
+	.h1-description {
+		margin-top: -20px;
 	}
 	</style>
 {% endblock head %}
@@ -24,24 +35,41 @@
 	"lime lighten-5"
 {% endblock bodyclass %}
 {% block content %}
-	<div class="">
-		<div id="notice-red">
-			Still Working on it. But my design skill sucks lol.
-			<br>
-			If there is any front-end developer want to help out(and practice your skills),
-			feel free to contact me on
-			<a href="https://www.linkedin.com/in/jack-sanchez-677bb5168/" class="style-link">Linkedin!</a> or <a href="https://www.instagram.com/3bbsanch3z/" class="style-link">Instagram!</a>
-			<br>
-			<p class="align-right no-margin">- Jack Sanchez 2020/01/15</p>
+	{% load static %}
+	{% if messages %}
+		
+		<ul class="messages" id="notice-red">
+			{% for message in messages %}
+				<li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+			{% endfor %}
+		</ul>
+		
+	{% endif %}
+	
+	<div class="row">
+		<div class="col s12">
+			<img id="profile" src="{% static "practicezone/me.PNG" %}">
 		</div>
+		
 	</div>
+	
 	<div class="row">
 		<div class="page-header col s12">
-			<h1 class='center-align col s12'><a href="/" class="simple-link">Jack's Practice Zone</a></h1>
-			<div class='col s9 offset-s2'>
+			<h1 class='center-align col s12'>
+			<a href="/" class="simple-link">#DjangoEveryDay</a>
+			</h1>
+			<h5 class='center-align grey-text text-darken-3 h1-description col s12'>
+			Jack's Practice Zone
+			</h5>
+			
+			<div class='col s9 offset-s2 center-align'>
 				This is a Place where I put my practice app as a show case.<br>
-				Its	meant to be proof of skills and may become my portfolio someday.<br>
-				hope you enjoy your journey here.
+				It's	meant to be proof of skills and may become my portfolio someday.<br>
+				
+				Looking for front-end developer want to help out(and practice your skills)
+				<br>
+				Feel free to contact me on
+				<a href="https://www.linkedin.com/in/jack-sanchez-677bb5168/" class="style-link">Linkedin!</a> or <a href="https://www.instagram.com/3bbsanch3z/" class="style-link">Instagram!</a>
 			</div>
 		</div>
 	</div>
@@ -50,6 +78,7 @@
 		<h3>Practice Projects</h3>
 		{# Day 0 #}
 		<div class="row">
+			{# Day 0 #}
 			<div class="col s12 m6 l4">
 				<div class="card teal darken-4">
 					<div class="card-content white-text">
@@ -101,7 +130,7 @@
 					</div>
 				</div>
 			</div>
-			{# Day 3 #}
+			{# Day 4 #}
 			<div class="col s12 m6 l4">
 				<div class="card teal darken-4">
 					<div class="card-content white-text">
@@ -115,7 +144,7 @@
 					</div>
 				</div>
 			</div>
-			{# Day 4 #}
+			{# Day 5 #}
 			<div class="col s12 m6 l4">
 				<div class="card teal darken-4">
 					<div class="card-content white-text">
@@ -129,15 +158,11 @@
 					</div>
 				</div>
 			</div>
-			{# Bottom of Cards #}
 		</div>
 	</div>
-</div>
-
-<script>
-	$(function() {
-		$('.card').matchHeight();
-	});
-</script>
-
+	<script>
+		// $(function() {
+												// 	$('.card').matchHeight();
+		// });
+	</script>
 {% endblock content %}
