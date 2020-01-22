@@ -15,6 +15,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['testserver', '127.0.0.1']
 
+LOGIN_URL = '/accounts/login'
 
 # Application definition
 
@@ -56,6 +57,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'practicezone.context_processor.user_data_plus',
             ],
         },
     },
@@ -127,7 +129,8 @@ STATIC_URL = '/static/'
 # ]
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static')
+    os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, 'practicezone/static')
 ]
 
 # # ManifestStaticFilesStorage is recommended in production, to prevent outdated

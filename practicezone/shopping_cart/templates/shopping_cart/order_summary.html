@@ -6,6 +6,9 @@
   }
   </style>
 {% endblock head %}
+{% block bodyclass %}
+  "lime lighten-5"
+{% endblock bodyclass %}
 {% block content %}
   <div class="container">
     <header>
@@ -66,6 +69,7 @@
         
       </div>
     </section>
+  </div>
   {% endblock %}
   {% block scripts %}
     {{ block.super }}

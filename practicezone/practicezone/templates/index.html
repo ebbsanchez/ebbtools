@@ -1,50 +1,13 @@
 {% extends "base.html" %}
 {% block head %}
 	{{ block.super }}
-	<style type="text/css">
-	* {
-		font-family: 'Gelasio', serif;
-	}
-	#notice-red {
-		background-color: #ffb6b9;
-		padding: 1em 3em;
-	}
-	.align-right{
-		text-align: right;
-	}
-	.no-margin{
-		margin:0;
-	}
-	.simple-link{
-		color: black;
-	}
-	#profile{
-		position: relative;
-		width:20em;
-		margin-left:-10em;
-		margin-bottom: -4em;
-		margin-top: 1em;
-		left: 50%;
-	}
-	.h1-description {
-		margin-top: -20px;
-	}
-	</style>
+	{% load static %}
 {% endblock head %}
 {% block bodyclass %}
 	"lime lighten-5"
 {% endblock bodyclass %}
 {% block content %}
-	{% load static %}
-	{% if messages %}
-		
-		<ul class="messages" id="notice-red">
-			{% for message in messages %}
-				<li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-			{% endfor %}
-		</ul>
-		
-	{% endif %}
+	
 	
 	<div class="row">
 		<div class="col s12">
@@ -56,7 +19,7 @@
 	<div class="row">
 		<div class="page-header col s12">
 			<h1 class='center-align col s12'>
-			<a href="/" class="simple-link">#DjangoEveryDay</a>
+			<a href="/" class="simple-link brand-logo">DjangoEveryDay</a>
 			</h1>
 			<h5 class='center-align grey-text text-darken-3 h1-description col s12'>
 			Jack's Practice Zone
@@ -76,93 +39,140 @@
 	<div class="divider"></div>
 	<div class="container">
 		<h3>Practice Projects</h3>
-		{# Day 0 #}
+		
 		<div class="row">
-			{# Day 0 #}
-			<div class="col s12 m6 l4">
-				<div class="card teal darken-4">
-					<div class="card-content white-text">
-						<span class="card-title">Day0. Todo App</span>
-						<p>Simple app to practice basic MTC in Django!</p>
-					</div>
-					<div class="card-action">
-						<a href="/todoapp">Pay a visit!</a>
+			
+			<div class="row">
+				
+				
+				
+				{# Day 0 #}
+				<div class="col l4 m6 s12">
+					<div class="card teal darken-4">
+						<div class="card-content white-text">
+							<span class="card-title">Day0. Todo App</span>
+							<p>Simple app to practice basic MTC in Django.</p>
+						</div>
+						<div class="card-action">
+							<a href="/todoapp">Pay a visit!</a>
+						</div>
 					</div>
 				</div>
+				
+				{# Day 1 #}
+				<div class="col l4 m6 s12">
+					<div class="card teal darken-4">
+						<div class="card-content white-text">
+							<span class="card-title">Day1. Shopping Cart</span>
+							<p>E-commerce seem to be a high demanding market. So practice shopping cart functoin here :)</p>
+						</div>
+						<div class="card-action">
+							<a href="/products">Pay a visit!</a>
+						</div>
+					</div>
+				</div>
+
+				{# Day 2 #}
+
+				<div class="col l4 m6 s12">
+					<div class="card teal darken-4">
+						<div class="card-content white-text">
+							<span class="card-title">Day2. Merging.</span>
+							<p>I create first two apps in seperate projects. So I spend this day them. Also fix some bug on my shopping cart.  </p>
+						</div>
+						
+					</div>
+				</div>
+			
 			</div>
-			{# Day 1 #}
-			<div class="col s12 m6 l4">
-				<div class="card teal darken-4">
-					<div class="card-content white-text">
-						<span class="card-title">Day1. Shopping Cart</span>
-						<p>E-commerce seem to be a high demanding market. So practice shopping cart functoin here :)</p>
-					</div>
-					<div class="card-action">
-						<a href="/products">Pay a visit!</a>
+
+			<div class="row">
+			
+				{# Day 3 #}
+		
+				<div class="col l4 m6 s12">
+					<div class="card teal darken-4">
+						<div class="card-content white-text">
+							<span class="card-title">Day3. This Index Page and Styling!</span>
+							<p>
+								Styling app of Day0 and Day1. Learning
+								<a href="https://material.io" class="style-link white-text">Material Design</a>
+								and using
+								<a href="https://materializecss.com" class="style-link white-text">materialize.css</a>
+								<br>
+								Also this page you are seeing is maked this day!
+							</p>
+						</div>
 					</div>
 				</div>
+				
+				{# Day 4 #}
+				
+				<div class="col l4 m6 s12 mfixup">
+					<div class="card teal darken-4">
+						<div class="card-content white-text">
+							<span class="card-title">Day4. Learning TestCase.</span>
+							<p>
+								Trying to understand how and why of writing test. Learn from the
+								<a href="https://docs.djangoproject.com/en/3.0/topics/testing/overview/" class="style-link white-text">Django Documentation</a> and <a href="https://docs.python.org/3/library/unittest.html#module-unittest" class="style-link white-text">Python Documentation</a>. Using
+								<a href="https://github.com/django-extensions/django-extensions" class="style-link white-text">Django extention</a>
+								to fetch the URL from urls.py. Actually I made it and succesfully to create URL test. But Got defeated by the bug and assert always failed. It hit me and realize why test is important! I saw detailed bug in my own project.
+							</p>
+						</div>
+					</div>
+				</div>
+				
+				{# Day 5 #}
+				<div class="col l4 m6 s12">
+					<div class="card teal darken-4">
+						<div class="card-content white-text">
+							<span class="card-title">Day5. I found the bug!! & Test Result Page.</span>
+							<p>
+								I fix the goddam bug today :D There is a page that run the test and show you every link is working well ;D!
+							</p>
+						</div>
+						<div class="card-action">
+							<a href="/test">Pay a visit!</a>
+						</div>
+					</div>
+				</div>
+				
 			</div>
-			{# Day 2 #}
-			<div class="col s12 m6 l4">
-				<div class="card teal darken-4">
-					<div class="card-content white-text">
-						<span class="card-title">Day2. Merging.</span>
-						<p>I create first two apps in seperate projects. So I spend this day them. Also fix some bug on my shopping cart.  </p>
-					</div>
-					<div class="card-action">
-						<a href="/products">Pay a visit!</a>
-					</div>
-				</div>
-			</div>
-			{# Day 3 #}
-			<div class="col s12 m6 l4">
-				<div class="card teal darken-4">
-					<div class="card-content white-text">
-						<span class="card-title">Day3. This Index Page and Styling!</span>
-						<p>
-							Styling app of Day0 and Day1. Learning
-							<a href="https://material.io" class="style-link white-text">Material Design</a>
-							and using
-							<a href="https://materializecss.com" class="style-link white-text">materialize.css</a>
-							<br>
-							Also this page you are seeing is maked this day!
-						</p>
+			<div class="row">
+
+				{# Day6 #}
+
+				<div class="col l4 m6 s12">
+					<div class="card teal darken-4">
+						<div class="card-content white-text">
+							<span class="card-title">Day6. Learning Django User Model</span>
+							<p>
+								Digging in <a class="style-link white-text" href="https://docs.djangoproject.com/en/3.0/topics/auth/default/">Using the Django authentication system.</a>  Learning <a href="https://docs.djangoproject.com/en/3.0/topics/auth/default/#module-django.contrib.auth.forms" class="style-link white-text">built-in form</a> and many others. However Failed to published an update today. Feel guilty.
+							</p>
+						</div>
 					</div>
 				</div>
-			</div>
-			{# Day 4 #}
-			<div class="col s12 m6 l4">
-				<div class="card teal darken-4">
-					<div class="card-content white-text">
-						<span class="card-title">Day4. Learning TestCase.</span>
-						<p>
-							Trying to understand how and why of writing test. Learn from the
-							<a href="https://docs.djangoproject.com/en/3.0/topics/testing/overview/" class="style-link white-text">Django Documentation</a> and <a href="https://docs.python.org/3/library/unittest.html#module-unittest" class="style-link white-text">Python Documentation</a>. Using
-							<a href="https://github.com/django-extensions/django-extensions" class="style-link white-text">Django extention</a>
-							to fetch the URL from urls.py. Actually I made it and succesfully to create URL test. But Got defeated by the bug and assert always failed. It hit me and realize why test is important! I saw detailed bug in my own project.
-						</p>
+
+				{# Day7 #}
+
+				<div class="col l4 m6 s12">
+					<div class="card teal darken-4">
+						<div class="card-content white-text">
+							<span class="card-title">Day7. Finishing Authenticatoin and Styling.</span>
+							<p>
+								Update all app to make them functional with user. You don't need guest account now. You can login with your own account and save everything in your own session.
+								<br>
+								There is a <a href="https://stackoverflow.com/questions/38457266/materialize-alignment-issue-with-cards" class="style-link white-text">alignment issue</a> in the index page, however it can't be fix for now through materilize.css. 
+								<br>
+								Add NavBar and Responsive Design today.
+							</p>
+						</div>
 					</div>
 				</div>
-			</div>
-			{# Day 5 #}
-			<div class="col s12 m6 l4">
-				<div class="card teal darken-4">
-					<div class="card-content white-text">
-						<span class="card-title">Day5. I found the bug!! & Test Result Page.</span>
-						<p>
-							I fix the goddam bug today :D There is a page that run the test and show you every link is working well ;D!
-						</p>
-					</div>
-					<div class="card-action">
-						<a href="/test">Pay a visit!</a>
-					</div>
-				</div>
+
 			</div>
 		</div>
 	</div>
 	<script>
-		// $(function() {
-												// 	$('.card').matchHeight();
-		// });
 	</script>
 {% endblock content %}

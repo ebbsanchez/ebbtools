@@ -9,12 +9,13 @@ from practicezone.extras import get_random_guest_user
 
 
 def product_list(request):
-    guest_group = Group.objects.get(name="Guests")
-    user_groups = request.user.groups.all()
-
-    if guest_group not in user_groups:
-        guest = get_random_guest_user()
-        login(request, guest)
+    if request.user.username == '':
+        guest_group = Group.objects.get(name="Guests")
+        user_groups = request.user.groups.all()
+        if guest_group not in user_groups:
+            guest = get_random_guest_user()
+            login(request, guest)
+            
     object_list = Product.objects.all()
     filtered_orders = Order.objects.filter(
         owner=request.user.profile, is_ordered=False)

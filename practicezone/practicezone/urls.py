@@ -21,10 +21,11 @@ from . import views
 # from .views import testing_page
 
 urlpatterns = [
-    path('', views.index),
+    path('', views.index, name="homepage"),
     path('test', views.showTheTestResult),
     path('todoapp/', todolist.views.index, name="todolist"),
     path('admin/', admin.site.urls),
+    path('accounts/', include('accounts.urls', namespace='accounts')),
     path('products/', include('products.urls', namespace='products')),
     path('shopping_cart/', include('shopping_cart.urls', namespace='shopping_cart')),
 

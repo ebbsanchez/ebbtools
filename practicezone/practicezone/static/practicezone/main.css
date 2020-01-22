@@ -1,0 +1,40 @@
+* {
+	font-family: 'Gelasio', serif;
+}
+#notice-red {
+	background-color: #ffb6b9;
+	padding: 1em 3em;
+}
+.align-right{
+	text-align: right;
+}
+.no-margin{
+	margin:0;
+}
+.simple-link{
+	color: black;
+}
+#profile{
+	position: relative;
+	width:20em;
+	margin-left:-10em;
+	margin-bottom: -4em;
+	margin-top: 1em;
+	left: 50%;
+}
+.h1-description {
+	margin-top: -20px;
+}
+
+@media screen and (max-width: 992px) and (min-width: 600px)   {
+	  .mfixup {
+		margin-top: -17em;
+	}
+
+}
+
+@media screen and (max-width: 600px) {
+	h1 a.brand-logo {
+		font-size: 80%;
+	}
+}

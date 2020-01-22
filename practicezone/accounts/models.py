@@ -5,6 +5,8 @@ from django.db.models.signals import post_save
 
 from products.models import Product
 
+# Profile for Shopping Cart
+
 User = get_user_model()
 
 
@@ -23,3 +25,5 @@ def post_save_profile_create(sender, instance, created, *args, **kwargs):
 
 
 post_save.connect(post_save_profile_create, sender=settings.AUTH_USER_MODEL)
+
+

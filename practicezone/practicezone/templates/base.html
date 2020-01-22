@@ -13,18 +13,22 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <!-- Font -->
         <link href="https://fonts.googleapis.com/css?family=Gelasio&display=swap" rel="stylesheet">
-        
+        <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
+        <!-- Icon -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
         {# Jquery #}
         <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
         <script src="{% static "products/materialize.min.js" %}"></script>
         <script src="{% static "practicezone/jquery.matchHeight.js" %}"></script>
     
         <!--styling for individual pages-->
+        <link rel="stylesheet" href='{% static "practicezone/main.css" %}'>
         {% block head %}
         {% endblock head %}
         <style type='text/css'>
         /* Font Family */
-        * {
+       * {
         font-family: 'Gelasio', serif;
         }
         /* Link Style*/
@@ -40,10 +44,68 @@
         padding-top: 2px;
         box-shadow: none;
         }
+        nav {
+            padding-left: 1em;
+            margin-bottom: 1em;
+
+        }
+        .brand-logo {
+            font-family: 'Lobster', cursive;
+            max-width: 100%;
+        }
+        
+
         </style>
+
     </head>
-    <body class={% block bodyclass %}{% endblock %}>
+    <body class={% block bodyclass %}"lime lighten-5"{% endblock %}>
     
+  <nav class="teal darken-4">
+    <div class="nav-wrapper teal darken-4">
+      <a href="/" class="brand-logo">DjangoEveryDay</a>
+      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li>            
+            {% if request_user.username %}
+                <a href="">Hi, {{request_user}}</a>
+            {% endif %}
+        </li>
+        <li>
+            {% if request_user_groups.0.name == "Guests" or request_user.username == ''%}
+                <a href="{% url "accounts:login" %}"> Please Login </a>
+            {% else %}
+                <a href="{% url "accounts:logout" %}">Logout</a>
+            {% endif %}
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <ul id="mobile-demo" class="sidenav">
+        <li>            
+            {% if request_user.username %}
+                <a href="{% url "accounts:profile" %}">Hi, {{request_user}}</a>
+            {% endif %}
+        </li>
+        <li>
+            {% if request_user_groups.0.name == "Guests" or request_user.username == ''%}
+                <a href="{% url "accounts:login" %}"> Please Login </a>
+            {% else %}
+                <a href="{% url "accounts:logout" %}">Logout</a>
+            {% endif %}
+        </li>
+      </ul>
+    
+{% if messages %}
+        
+        <ul class="messages" id="notice-red">
+            {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        
+    {% endif %}
+
     {% block content %}
     {% endblock %}
     <footer class="page-footer teal lighten-1">
@@ -78,6 +140,14 @@
     
     
     <!--JavaScript at end of body for optimized loading-->
-    <!-- <script type="text/javascript" src="js/materialize.min.js"></script> -->
+    <script type="text/javascript" src="{% static "practicezone/materialize.min.js" %}"></script>
+    <script>
+
+      $(document).ready(function(){
+        $('.sidenav').sidenav();
+      });
+            
+    </script>
+    
 </body>
 </html>
