@@ -70,7 +70,7 @@ def create_session(request):
             context = {
             'form': form,
             }
-            message.error_message = 'Unvalid username/<password></password>'
+            messages.error_message = 'Unvalid username/<password></password>'
         return render(request, 'accounts/login.html', context)
     else:
         form = AuthenticationForm()
