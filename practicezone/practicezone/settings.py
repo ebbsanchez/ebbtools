@@ -31,6 +31,8 @@ INSTALLED_APPS = [
     'products',
     'shopping_cart',
     'django_extensions',
+    'diary',
+    'markdown_deux'
 ]
 
 MIDDLEWARE = [

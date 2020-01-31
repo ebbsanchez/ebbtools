@@ -1,12 +1,18 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from .test_link_validator import LinkTest
+from diary.models import Entry
 
 # Create your views here.
 
 
 def index(request):
-    return render(request, "index.html")
+    entries = Entry.objects.order_by('-posted_date')
+    context = {
+        'entries': entries,
+    }
+
+    return render(request, "index.html", context)
 
 
 def showTheTestResult(request):
