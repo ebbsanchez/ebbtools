@@ -27,6 +27,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('accounts.urls', namespace='accounts')),
     path('products/', include('products.urls', namespace='products')),
-    path('shopping_cart/', include('shopping_cart.urls', namespace='shopping_cart')),
-
+    path('shopping_cart/', include('shopping_cart.urls',
+                                   namespace='shopping_cart')),
+    path('workflow_chart/', include('workflow_chart.urls',
+                                    namespace='workflow_chart')),
 ]

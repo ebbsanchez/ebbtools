@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block head %}
+	{{ block.super }}
+	{% load static %}
+	<link rel="stylesheet" href="{% static "workflow_chart/main.css" %}">
+{% endblock head %}
+{% block navstyle %}
+	display:none;
+{% endblock navstyle %}
+{% block footerstyle %}
+	display:none;
+{% endblock footerstyle %}
+{% block content %}
+	<h5 class="center-align">{{ chart.title }}</h5>
+	<div class="mobile-use">
+		<ul class="blocklist">
+			{% for item in chart_items %}
+				<li class="valign-wrapper">
+					<span class="center-align" style="width:100%;">{{ item }}</span>
+				</li>
+			{% endfor %}
+		</ul>
+		<h5 class="center-align" style="width:100%;">Done!</h5>
+	</div>
+
+	<script>
+
+		var colors = [];
+		{% for color in colors %}
+			colors.push("{{ color }}");
+		{% endfor %}
+		
+		$('.blocklist > li').each(function(index, value){
+			$(this).addClass(colors[index%colors.length] +" lighten-3")
+			}
+		);
+		
+		
+	</script>
+{% endblock content %}

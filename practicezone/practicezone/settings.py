@@ -32,7 +32,9 @@ INSTALLED_APPS = [
     'shopping_cart',
     'django_extensions',
     'diary',
-    'markdown_deux'
+    'markdown_deux',
+    'workflow_chart',
+
 ]
 
 MIDDLEWARE = [
@@ -123,5 +125,4 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'practicezone/static'),
-    os.path.join(BASE_DIR, 'practicezone/static')
 ]

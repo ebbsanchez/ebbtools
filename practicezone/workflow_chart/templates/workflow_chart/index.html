@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block head %}
+	{{ block.super }}
+	{% load static %}
+{% endblock head %}
+{% block bodyclass %}
+	"lime lighten-5"
+{% endblock bodyclass %}
+{% block content %}
+	<h3>This is index of workflow chart.</h3>
+	---	
+	{% for chart in flow_charts %}
+		<a href="{% url "workflow_chart:chart" chart.id %}">{{ chart.title }}</a>
+	{% endfor %}
+	
+{% endblock content %}

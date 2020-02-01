@@ -1,0 +1,24 @@
+div.mobile-use{
+	max-width:20em;
+	margin: auto;
+}
+.blocklist li{
+	position: relative;
+	width: 100%;
+	height: 5em;
+	text-align: center;
+}
+
+.blocklist li:after {
+    content:'';
+    position: absolute;
+    margin-top: 0;
+    top: 4.2em;
+    left: 50%;
+    margin-left: -10px;
+    width: 20px;
+    height: 20px;
+    background-color: inherit;
+    z-index: 10;
+    transform: rotate(45deg);
+}
