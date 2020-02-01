@@ -42,139 +42,23 @@
 		
 		<div class="row">
 			
-			<div class="row">
-				
-				{% for entry in entries %}
+			
+			{% for entry in entries %}
 				<div class="col l4 m6 s12">
 					<div class="card teal darken-4">
 						<div class="card-content white-text">
 							<span class="card-title">{{ entry.title }}</span>
-								<p>{{ entry.content | markdown }}</p>
+							<p>{{ entry.content | markdown }}</p>
 						</div>
 						{% if entry.related_link_name %}
-						<div class="card-action">
-							<a href="{% url entry.related_link_name %}">Pay a visit!</a>
-						</div>
+							<div class="card-action">
+								<a href="{% url entry.related_link_name %}">Pay a visit!</a>
+							</div>
 						{% endif %}
 					</div>
 				</div>
-				{% endfor %}
-				
-				{# Day 1 #}
-				<div class="col l4 m6 s12">
-					<div class="card teal darken-4">
-						<div class="card-content white-text">
-							<span class="card-title">Day1. Shopping Cart</span>
-							<p>E-commerce seem to be a high demanding market. So practice shopping cart functoin here :)</p>
-						</div>
-						<div class="card-action">
-							<a href="">Pay a visit!</a>
-						</div>
-					</div>
-				</div>
-
-				{# Day 2 #}
-
-				<div class="col l4 m6 s12">
-					<div class="card teal darken-4">
-						<div class="card-content white-text">
-							<span class="card-title">Day2. Merging.</span>
-							<p>I create first two apps in seperate projects. So I spend this day them. Also fix some bug on my shopping cart.  </p>
-						</div>
-						
-					</div>
-				</div>
+			{% endfor %}
 			
-			</div>
-
-			<div class="row">
-			
-				{# Day 3 #}
-		
-				<div class="col l4 m6 s12">
-					<div class="card teal darken-4">
-						<div class="card-content white-text">
-							<span class="card-title">Day3. This Index Page and Styling!</span>
-							<p>
-								Styling app of Day0 and Day1. Learning
-								<a href="https://material.io" class="style-link white-text">Material Design</a>
-								and using
-								<a href="https://materializecss.com" class="style-link white-text">materialize.css</a>
-								<br>
-								Also this page you are seeing is maked this day!
-							</p>
-						</div>
-					</div>
-				</div>
-				
-				{# Day 4 #}
-				
-				<div class="col l4 m6 s12 mfixup">
-					<div class="card teal darken-4">
-						<div class="card-content white-text">
-							<span class="card-title">Day4. Learning TestCase.</span>
-							<p>
-								Trying to understand how and why of writing test. Learn from the
-								<a href="https://docs.djangoproject.com/en/3.0/topics/testing/overview/" class="style-link white-text">Django Documentation</a> and <a href="https://docs.python.org/3/library/unittest.html#module-unittest" class="style-link white-text">Python Documentation</a>. Using
-								<a href="https://github.com/django-extensions/django-extensions" class="style-link white-text">Django extention</a>
-								to fetch the URL from urls.py. Actually I made it and succesfully to create URL test. But Got defeated by the bug and assert always failed. It hit me and realize why test is important! I saw detailed bug in my own project.
-							</p>
-						</div>
-					</div>
-				</div>
-				
-				{# Day 5 #}
-				<div class="col l4 m6 s12">
-					<div class="card teal darken-4">
-						<div class="card-content white-text">
-							<span class="card-title">Day5. I found the bug!! & Test Result Page.</span>
-							<p>
-								I fix the goddam bug today :D There is a page that run the test and show you every link is working well ;D!
-							</p>
-						</div>
-						<div class="card-action">
-							<a href="/test">Pay a visit!</a>
-						</div>
-					</div>
-				</div>
-				
-			</div>
-			<div class="row">
-
-				{# Day6 #}
-
-				<div class="col l4 m6 s12">
-					<div class="card teal darken-4">
-						<div class="card-content white-text">
-							<span class="card-title">Day6. Learning Django User Model</span>
-							<p>
-								Digging in <a class="style-link white-text" href="https://docs.djangoproject.com/en/3.0/topics/auth/default/">Using the Django authentication system.</a>  Learning <a href="https://docs.djangoproject.com/en/3.0/topics/auth/default/#module-django.contrib.auth.forms" class="style-link white-text">built-in form</a> and many others. However Failed to published an update today. Feel guilty.
-							</p>
-						</div>
-					</div>
-				</div>
-
-				{# Day7 #}
-
-				<div class="col l4 m6 s12">
-					<div class="card teal darken-4">
-						<div class="card-content white-text">
-							<span class="card-title">Day7. Finishing Authenticatoin and Styling.</span>
-							<p>
-								Update all app to make them functional with user. You don't need guest account now. You can login with your own account and save everything in your own session.
-								<br>
-								There is a <a href="https://stackoverflow.com/questions/38457266/materialize-alignment-issue-with-cards" class="style-link white-text">alignment issue</a> in the index page, however it can't be fix for now through materilize.css. 
-								<br>
-								Add NavBar and Responsive Design today.
-							</p>
-						</div>
-						<div class="card-action">
-							<a href="/accounts">Pay a visit!</a>
-						</div>
-					</div>
-				</div>
-
-			</div>
 		</div>
 	</div>
 	<script>
