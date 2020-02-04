@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'diary',
     'markdown_deux',
     'workflow_chart',
+    'gitlog',
 
 ]
 

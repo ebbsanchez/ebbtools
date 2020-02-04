@@ -14,7 +14,7 @@ import datetime
 # stat
 
 
-def main():
+def getCommits():
     raw_text = getGitLog()
     commits = gitLogToList(raw_text)
     constructred_commits = []
@@ -33,7 +33,6 @@ def getGitLog():
 
 
 def gitLogToList(raw_text):
-
     commits = []
     current_commit = {}
     lines = raw_text.split("\n")
@@ -55,10 +54,8 @@ def gitLogToList(raw_text):
         else:
             key, value = line.split(':', 1)
             current_commit[key.lower()] = value.strip()
-
     # Save the last commit
     commits.append(current_commit)
-
     return commits
 
 

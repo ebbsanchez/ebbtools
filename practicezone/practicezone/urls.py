@@ -31,4 +31,5 @@ urlpatterns = [
                                    namespace='shopping_cart')),
     path('workflow_chart/', include('workflow_chart.urls',
                                     namespace='workflow_chart')),
+    path('gitlog/', include("gitlog.urls", namespace='gitlog')),
 ]
