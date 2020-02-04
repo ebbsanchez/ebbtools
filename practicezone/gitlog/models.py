@@ -13,8 +13,12 @@ class Commit(models.Model):
     file_changed_count = models.IntegerField()
     insertions_count = models.IntegerField()
     deletions_count = models.IntegerField()
+    class Meta:
+    	ordering = ('-datetime_object',)
+
 
     def __str__(self):
     	decoed_branch =  '(' + self.branch + ')'
     	return " ".join([self.commit_hash[:7],decoed_branch,self.commit_note])
+
 
