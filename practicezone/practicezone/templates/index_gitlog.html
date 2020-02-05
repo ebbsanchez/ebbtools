@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% block head %}
+	{{ block.super }}
+	{% load static %}
+	<link rel="stylesheet" href="{% static 'gitlog/daygram.css' %}">
+{% endblock head %}
+{% block bodyclass %}
+	"lime lighten-5"
+{% endblock bodyclass %}
+{% block content %}
+	{% load markdown_deux_tags %}
+	
+	<div class="row">
+		<div class="col s12">
+			<img id="profile" src="{% static "practicezone/me.PNG" %}">
+		</div>
+		
+	</div>
+	
+	<div class="row">
+		<div class="page-header col s12">
+			<h1 class='center-align col s12'>
+			<a href="/" class="simple-link brand-logo">DjangoEveryDay</a>
+			</h1>
+			<h5 class='center-align grey-text text-darken-3 h1-description col s12'>
+			Jack's Practice Zone
+			</h5>
+			
+			<div class='col s8 offset-s2 center-align'>
+				This is a Place where I put my practice app as a show case.<br>
+				It's	meant to be proof of skills and may become my portfolio someday.<br>
+				
+				Looking for front-end developer want to help out(and practice your skills)
+				<br>
+				Feel free to contact me on
+				<a href="https://www.linkedin.com/in/jack-sanchez-677bb5168/" class="style-link">Linkedin!</a> or <a href="https://www.instagram.com/3bbsanch3z/" class="style-link">Instagram!</a>
+			</div>
+		</div>
+	</div>
+	<div class="divider"></div>
+	<br>
+	<div id="commits" class="container daygram">
+		{% for commit in commits %}
+			<div class="day">
+				<div class="date">
+					<div class="content">
+						<p>
+							{{ commit.weekday }}<br>
+							{{ commit.day }}
+						</p>
+					</div>
+				</div>
+				<div class="message">
+					({{ commit.branch }}) {{ commit.commit_note }} {{ commit.insertions_count }}+ {{ commit.deletions_count }}-
+				</div>
+			</div>
+			
+			<br>
+		{% endfor %}
+	</div>
+	<div class="container">
+		<h3>Practice Projects</h3>
+		{% for entry in entries %}
+			<div>
+				<h5>
+				{% if entry.related_link_name %}
+					{{ entry.title }}
+					<a href="{% url entry.related_link_name %}">Pay a visit!</a>
+				{% endif %}
+				</h5>
+				<p>{{ entry.content | markdown }}</p>
+			</div>
+		{% endfor %}
+	</div>
+{% endblock content %}
