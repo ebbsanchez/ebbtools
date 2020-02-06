@@ -38,38 +38,89 @@
 		</div>
 	</div>
 	<div class="divider"></div>
-	<br>
-	<div id="commits" class="container daygram">
-		{% for commit in commits %}
-			<div class="day">
-				<div class="date">
-					<div class="content">
-						<p>
-							{{ commit.weekday }}<br>
-							{{ commit.day }}
-						</p>
-					</div>
-				</div>
-				<div class="message">
-					({{ commit.branch }}) {{ commit.commit_note }} {{ commit.insertions_count }}+ {{ commit.deletions_count }}-
-				</div>
-			</div>
-			
-			<br>
-		{% endfor %}
-	</div>
+	{# Project Links #}
 	<div class="container">
 		<h3>Practice Projects</h3>
 		{% for entry in entries %}
 			<div>
 				<h5>
 				{% if entry.related_link_name %}
-					{{ entry.title }}
-					<a href="{% url entry.related_link_name %}">Pay a visit!</a>
+					
+					<a class='style-link' href="{% url entry.related_link_name %}">{{ entry.title }}</a>
 				{% endif %}
 				</h5>
 				<p>{{ entry.content | markdown }}</p>
 			</div>
 		{% endfor %}
 	</div>
+	<div class="divider"></div>
+
+	{# Commit Journal #}
+	<div class="container">
+		<h5>
+			Commit Journal 
+			<span class="grey-text" style="opacity: 80%; font-size: 60%;">
+				{{ commits_count }} Commits,
+				{{ days_of_work }} Days,
+				{{ line_of_code }} Lines of code.
+				
+			</span>
+		</h5> 
+		<div id="commits" class="daygram">
+			{% for commit in commits %}
+				<div class="day">
+					<div class="date">
+						<div class="content">
+							<p>{{ commit.month }}<br>{{ commit.day }}</p>
+						</div>
+					</div>
+					<div class="message">
+						{% if commit.branch == 'master' %}
+							<span class="branch orange-text text-darken-4">{{ commit.branch }}</span>
+						{% else %}
+							<span class="branch green-text text-darken-3">{{ commit.branch }}</span>
+						{% endif %}
+						{{ commit.commit_note }}
+						<span class="alignright">
+							<span class="orange-text text-darken-4">{{ commit.insertions_count }}+</span>
+							<span class="teal-text text-darken-4">{{ commit.deletions_count }}-</span>
+						</span>
+						<div style="clear:both;"></div>
+					</div>
+				</div>
+				
+				<br>
+			{% endfor %}
+		</div>
+	</div>
+	
+	<script>
+	var days = $('.day .date .content p');
+	var current_date = "";
+	var switcher = true;
+	days.each(function(){
+		// console.log('day:'+this.innerHTML + ' Date:' + current_date);
+		if (this.innerHTML != current_date) {
+			current_date = this.innerHTML;
+			switcher = !switcher;
+		}
+
+		if (this.innerHTML == current_date) {
+			if (switcher) {
+				$(this).closest('.day').addClass('diffcolor');
+			}
+		}
+
+		
+
+
+	})
+
+
+
+
+
+
+	</script>
+
 {% endblock content %}

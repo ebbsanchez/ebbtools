@@ -4,6 +4,9 @@
 	border: 1px solid #000;
 	height: 5em;
 }
+.daygram .day.diffcolor{
+	background-color: #FFEBCE;
+}
 /*Height*/
 .daygram .date {
 	display: inline-block;
@@ -29,7 +32,11 @@
 	display: inline-block;
 	vertical-align: middle;
 	padding-left: 1em;
-	max-width: calc(100% - 5em - 1em);
+	width: calc(100% - 5em - 1em);
+}
+
+.daygram .alignright{
+	float:right;
 }
 
 

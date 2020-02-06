@@ -5,7 +5,7 @@ from django.db import models
 
 class Commit(models.Model):
     commit_hash = models.CharField(max_length=40, unique=True)
-    branch = models.CharField(max_length=30)
+    branch = models.CharField(max_length=100)
     author = models.CharField(max_length=30)
     email = models.CharField(max_length=30)
     datetime_object = models.DateTimeField()
