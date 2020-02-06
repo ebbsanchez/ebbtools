@@ -35,7 +35,6 @@ INSTALLED_APPS = [
     'markdown_deux',
     'workflow_chart',
     'gitlog',
-
 ]
 
 MIDDLEWARE = [

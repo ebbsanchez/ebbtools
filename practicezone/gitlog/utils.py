@@ -4,6 +4,7 @@
 
 import subprocess
 import datetime
+import os
 
 # commit{} in commits[]
 # commit_hash
@@ -26,9 +27,16 @@ def getCommits():
 
 
 def getGitLog():
-    raw = subprocess.check_output(
-        ['git', 'log', '--decorate', '--shortstat'], stderr=subprocess.STDOUT
-    ).decode("utf-8")
+    if os.getenv("THIS_ENV") == "development":
+        raw = subprocess.check_output(
+            ['git', 'log', '--decorate', '--shortstat'], stderr=subprocess.STDOUT
+        ).decode("utf-8")
+    else:
+        module_dir = os.path.dirpath(__file__)
+        file_path = os.path.join(module_dir, 'gitlog.txt')
+        with open(file_path, 'r') as f:
+            raw = f.read()
+            raw = raw.decode('utf-8')
     return raw
 
 
