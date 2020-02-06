@@ -36,7 +36,6 @@ def getGitLog():
         file_path = os.path.join(module_dir, 'gitlog.txt')
         with open(file_path, 'r') as f:
             raw = f.read()
-            raw = raw.decode('utf-8')
     return raw
 
 
