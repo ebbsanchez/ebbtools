@@ -32,7 +32,7 @@ def getGitLog():
             ['git', 'log', '--decorate', '--shortstat'], stderr=subprocess.STDOUT
         ).decode("utf-8")
     else:
-        module_dir = os.path.dirpath(__file__)
+        module_dir = os.path.dirname(__file__)
         file_path = os.path.join(module_dir, 'gitlog.txt')
         with open(file_path, 'r') as f:
             raw = f.read()
