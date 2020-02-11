@@ -54,18 +54,17 @@
 		{% endfor %}
 	</div>
 	<div class="divider"></div>
-
 	{# Commit Journal #}
 	<div class="container">
 		<h5>
-			Commit Journal 
-			<span class="grey-text" style="opacity: 80%; font-size: 60%;">
-				{{ commits_count }} Commits,
-				{{ days_of_work }} Days,
-				{{ line_of_code }} Lines of code.
-				
-			</span>
-		</h5> 
+		Commit Journal
+		<span class="grey-text" style="opacity: 80%; font-size: 60%;">
+			{{ commits_count }} Commits,
+			{{ days_of_work }} Days,
+			{{ line_of_code }} Lines of code.
+			
+		</span>
+		</h5>
 		<div id="commits" class="daygram">
 			{% for commit in commits %}
 				<div class="day">
@@ -99,28 +98,16 @@
 	var current_date = "";
 	var switcher = true;
 	days.each(function(){
-		// console.log('day:'+this.innerHTML + ' Date:' + current_date);
 		if (this.innerHTML != current_date) {
 			current_date = this.innerHTML;
 			switcher = !switcher;
 		}
-
+		
 		if (this.innerHTML == current_date) {
 			if (switcher) {
 				$(this).closest('.day').addClass('diffcolor');
 			}
 		}
-
-		
-
-
-	})
-
-
-
-
-
-
+	});
 	</script>
-
 {% endblock content %}
